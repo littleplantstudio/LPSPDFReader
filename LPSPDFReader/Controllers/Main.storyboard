@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="landscape" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
@@ -7,10 +7,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--PDFReaderVC-->
+        <!--Reader View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController storyboardIdentifier="LPSPDFReaderVC" title="PDFReaderVC" id="BYZ-38-t0r" customClass="PDFReaderViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PDFReaderViewController" modalPresentationStyle="fullScreen" useStoryboardIdentifierAsRestorationIdentifier="YES" id="BYZ-38-t0r" customClass="PDFReaderViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -97,8 +97,8 @@
                                         </collectionViewFlowLayout>
                                         <cells/>
                                         <connections>
-                                            <outlet property="dataSource" destination="BYZ-38-t0r" id="yYs-b3-scL"/>
-                                            <outlet property="delegate" destination="BYZ-38-t0r" id="foZ-q1-mvD"/>
+                                            <outlet property="dataSource" destination="BYZ-38-t0r" id="4gV-lA-iwj"/>
+                                            <outlet property="delegate" destination="BYZ-38-t0r" id="1pI-Hj-Jkl"/>
                                         </connections>
                                     </collectionView>
                                 </subviews>
@@ -128,12 +128,11 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="bottomThumbnailView" destination="X3C-tU-UQg" id="Ioj-25-CVM"/>
                         <outlet property="bottomThumbnailViewHeightConstraint" destination="f9M-ai-bd7" id="AQS-ud-p28"/>
                         <outlet property="pageModeButton" destination="IFV-Ck-Uku" id="wVU-rq-geo"/>
                         <outlet property="pageNumberLabel" destination="KbN-nR-3Rz" id="oRI-TG-IBQ"/>
                         <outlet property="pdfContainerView" destination="aBI-nb-7D1" id="xJK-Dg-qfJ"/>
-                        <outlet property="pdfThumbnailCollectionView" destination="Pdg-sP-sq4" id="339-8J-oMF"/>
+                        <outlet property="pdfThumbnailCollectionView" destination="Pdg-sP-sq4" id="0YE-yP-lbw"/>
                         <outlet property="pdfTitleLabel" destination="Eho-FI-VKD" id="4B8-56-DDY"/>
                         <outlet property="topToolbar" destination="VTd-kz-GhC" id="fuH-lS-PRu"/>
                         <outlet property="topToolbarHeightConstraint" destination="qX8-9v-y9z" id="UgJ-Of-khx"/>

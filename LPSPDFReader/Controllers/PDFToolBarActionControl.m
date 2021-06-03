@@ -7,7 +7,7 @@
 //
 
 #import "PDFToolBarActionControl.h"
-
+#include "LPSConstants.h"
 @implementation PDFToolBarActionControl
 
 #pragma mark - Toolbar Button Action Methods
@@ -16,7 +16,7 @@
     
     PDFOutline *pdfOutlineRoot = pdfDocument.outlineRoot;
     if (pdfOutlineRoot != nil) {
-        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:[[LPSConstants sharedInstance] lpsBundle]];
         OutlineTableViewController *outlineTableVC = [storyboard instantiateViewControllerWithIdentifier:@"OutlineTableVC"];
         outlineTableVC.delegate = self;
         outlineTableVC.pdfOutlineRoot = pdfOutlineRoot;
@@ -43,7 +43,7 @@
 }
 
 - (void)showBookmarkTableFromSender:(id)sender {
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:[[LPSConstants sharedInstance] lpsBundle]];
     BookmarkViewController *bookmarksVC = [storyboard instantiateViewControllerWithIdentifier:@"BookmarkViewController"];
     bookmarksVC.delegate = self;
     bookmarksVC.pdfView = self.pdfViewController.pdfView;
@@ -63,7 +63,7 @@
 
 - (void)showSearchTableForPDFDocument:(PDFDocument *)pdfDocument fromSender:(id)sender {
     if (pdfDocument != nil) {
-        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:[[LPSConstants sharedInstance] lpsBundle]];
         SearchTableViewController *searchTableVC = [storyboard instantiateViewControllerWithIdentifier:@"SearchTableVC"];
         searchTableVC.delegate = self;
         searchTableVC.pdfDocument = pdfDocument;

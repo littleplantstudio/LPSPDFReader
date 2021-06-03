@@ -1,16 +1,16 @@
 //
-//  PDFReaderViewController.h
-//  PDFKit_Sample
+//  LPSPDFReaderViewController.h
+//  LPSPDFReader
 //
-//  Created by rajubd49 on 1/2/18.
-//  Copyright © 2018 rajubd49. All rights reserved.
+//  Created by Pituk Kaewsuksai on 3/6/21.
 //
 
 #import <UIKit/UIKit.h>
 #import <PDFKit/PDFKit.h>
 
+NS_ASSUME_NONNULL_BEGIN
 
-@interface PDFReaderViewController : UIViewController <UICollectionViewDataSource, UICollectionViewDelegate>
+@interface LPSPDFReaderViewController : UIViewController <UICollectionViewDataSource, UICollectionViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UILabel *pdfTitleLabel;
 @property (weak, nonatomic) IBOutlet UILabel *pageNumberLabel;
@@ -41,3 +41,5 @@
 - (IBAction)searchAction:(id)sender;
 
 @end
+
+NS_ASSUME_NONNULL_END

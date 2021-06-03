@@ -8,7 +8,7 @@
 
 #import "OutlineTableViewController.h"
 #import "OutlineTableViewCell.h"
-
+#include "LPSConstants.h"
 @interface OutlineTableViewController ()
 
 @end
@@ -32,7 +32,7 @@
         }
     }
     
-    [self.tableView registerNib:[UINib nibWithNibName:@"OutlineTableViewCell" bundle:nil] forCellReuseIdentifier:@"OutlineTableViewCell"];
+    [self.tableView registerNib:[UINib nibWithNibName:@"OutlineTableViewCell" bundle: [[LPSConstants sharedInstance] lpsBundle]] forCellReuseIdentifier:@"OutlineTableViewCell"];
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
     [self.tableView reloadData];
@@ -54,7 +54,6 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     OutlineTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"OutlineTableViewCell" forIndexPath:indexPath];
-    
     PDFOutline *pdfOutline = self.outlineArray[indexPath.row];
     cell.outlineTextLabel.text = pdfOutline.label;
     cell.pageNumberLabel.text = pdfOutline.destination.page.label;

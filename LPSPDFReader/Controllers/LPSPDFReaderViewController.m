@@ -1,52 +1,47 @@
 //
-//  PDFReaderViewController.m
-//  PDFKit_Sample
+//  LPSPDFReaderViewController.m
+//  LPSPDFReader
 //
-//  Created by rajubd49 on 1/2/18.
-//  Copyright © 2018 rajubd49. All rights reserved.
+//  Created by Pituk Kaewsuksai on 3/6/21.
 //
-#import "LPSConstants.h"
-#import "PDFReaderViewController.h"
+
+#import "LPSPDFReaderViewController.h"
 #import "ThumbnailCollectionCell.h"
 #import "PDFToolBarActionControl.h"
 
 #define IS_IPHONE (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
 #define IS_IPHONE_X (IS_IPHONE && [[UIScreen mainScreen] bounds].size.height == 812.0f)
 
-@interface PDFReaderViewController ()
-
+@interface LPSPDFReaderViewController ()
 @property (strong, nonatomic) PDFToolBarActionControl *toolbarActionControl;
 @property (strong, nonatomic) NSIndexPath *selectedIndexPath;
-
 @end
 
-@implementation PDFReaderViewController
-
-#pragma mark - ViewController LifeCycle
+@implementation LPSPDFReaderViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    self.documentName = @"sample.pdf";
-    if (!self.toolbarActionControl) {
-        self.toolbarActionControl = [[PDFToolBarActionControl alloc] init];
-        self.toolbarActionControl.pdfViewController = self;
-    }
-    self.topToolbarHeightConstraint.constant = IS_IPHONE_X ? 100: 80;
-    self.bottomThumbnailViewHeightConstraint.constant = IS_IPHONE_X ? 100: 80;
-
-    self.twoPageMode = NO;
-    [self preparePDFViewWithPageMode:kPDFDisplaySinglePage];
-
-    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(toggleTopBottomView)];
-    [self.pdfContainerView addGestureRecognizer:tap];
-
-    self.topToolbar.hidden = YES;
-    self.bottomThumbnailView.hidden = YES;
-
-    self.pdfThumbnailCollectionView.dataSource = self;
-    self.pdfThumbnailCollectionView.delegate = self;
-    [self.pdfThumbnailCollectionView registerNib:[UINib nibWithNibName:@"ThumbnailCollectionCell" bundle:[[LPSConstants sharedInstance] lpsBundle]] forCellWithReuseIdentifier:@"ThumbnailCollectionCell"];
+    // Do any additional setup after loading the view from its nib. self.documentName = @"sample.pdf";
+//    if (!self.toolbarActionControl) {
+//        self.toolbarActionControl = [[PDFToolBarActionControl alloc] init];
+//        self.toolbarActionControl.pdfViewController = self;
+//    }
+//
+//    self.topToolbarHeightConstraint.constant = IS_IPHONE_X ? 100: 80;
+//    self.bottomThumbnailViewHeightConstraint.constant = IS_IPHONE_X ? 100: 80;
+//
+//    self.twoPageMode = NO;
+//    [self preparePDFViewWithPageMode:kPDFDisplaySinglePage];
+//
+//    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(toggleTopBottomView)];
+//    [self.pdfContainerView addGestureRecognizer:tap];
+//
+//    self.topToolbar.hidden = YES;
+//    self.bottomThumbnailView.hidden = YES;b
+//
+//    self.pdfThumbnailCollectionView.dataSource = self;
+//    self.pdfThumbnailCollectionView.delegate = self;
+//    [self.pdfThumbnailCollectionView registerNib:[UINib nibWithNibName:@"ThumbnailCollectionCell" bundle:nil] forCellWithReuseIdentifier:@"ThumbnailCollectionCell"];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -57,7 +52,7 @@
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-    //[self updateThumbnailCollectionForSelectedIndex];
+    [self updateThumbnailCollectionForSelectedIndex];
 }
 
 - (void)viewDidDisappear:(BOOL)animated {
@@ -94,7 +89,7 @@
     [self.pdfView zoomIn:self];
     [self.pdfContainerView addSubview:self.pdfView];
     
-    NSURL *url = [[[LPSConstants sharedInstance] lpsBundle] URLForResource:@"sample" withExtension:@"pdf"];
+    NSURL *url = [[NSBundle mainBundle] URLForResource:@"sample" withExtension:@"pdf"];
     self.pdfDocument = [[PDFDocument alloc] initWithURL:url];
     
     self.pdfView.document = self.pdfDocument;
@@ -154,22 +149,21 @@
 {
     
     ThumbnailCollectionCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"ThumbnailCollectionCell" forIndexPath:indexPath];
-
+    
     PDFPage *pdfPage = [self.pdfDocument pageAtIndex:indexPath.item];
     if (pdfPage != nil ) {
         UIImage *thumbnail = [pdfPage thumbnailOfSize:cell.bounds.size forBox:kPDFDisplayBoxCropBox];
         cell.thumbnailImageView.image = thumbnail;
         cell.pageNumberLabel.text = [NSString stringWithFormat:@"%ld", indexPath.item +1];
     }
-
+    
     if ([self.pdfView.currentPage isEqual:pdfPage]) {
         cell.highlighted = YES;
         [self updatePdfTitleAndPageNumber];
     }else{
         cell.highlighted = NO;
     }
-    
-    return  cell;
+    return cell;
     
 }
 

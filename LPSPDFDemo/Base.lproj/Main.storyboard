@@ -1,62 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="0B0-3X-kMG">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="48l-rO-3Hj">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
-        <scene sceneID="VOY-rv-I0F">
+        <scene sceneID="Dop-dY-7Di">
             <objects>
-                <viewController id="hzt-G3-TbD" customClass="ViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="rgm-JL-0ta">
+                <viewController id="48l-rO-3Hj" customClass="ViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="JIb-eC-vqm">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gAf-xG-Prc">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hK1-6E-rWF">
                                 <rect key="frame" x="172" y="433" width="70" height="30"/>
                                 <state key="normal" title="Open PDF"/>
                                 <connections>
-                                    <action selector="openPDFTouched:" destination="hzt-G3-TbD" eventType="touchUpInside" id="hi5-ef-0R7"/>
+                                    <action selector="openPDFTouched:" destination="48l-rO-3Hj" eventType="touchUpInside" id="fDu-o9-9K1"/>
                                 </connections>
                             </button>
                         </subviews>
-                        <viewLayoutGuide key="safeArea" id="Aei-9j-Emp"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <viewLayoutGuide key="safeArea" id="frp-Sr-Waa"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="gAf-xG-Prc" firstAttribute="centerX" secondItem="rgm-JL-0ta" secondAttribute="centerX" id="Ac7-is-SVN"/>
-                            <constraint firstItem="gAf-xG-Prc" firstAttribute="centerY" secondItem="rgm-JL-0ta" secondAttribute="centerY" id="RmZ-eo-JW0"/>
+                            <constraint firstItem="hK1-6E-rWF" firstAttribute="centerY" secondItem="JIb-eC-vqm" secondAttribute="centerY" id="FJM-OM-5w5"/>
+                            <constraint firstItem="hK1-6E-rWF" firstAttribute="centerX" secondItem="JIb-eC-vqm" secondAttribute="centerX" id="hKJ-Is-cFo"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="2Sg-fv-CDC"/>
+                    <navigationItem key="navigationItem" id="v62-bf-17D"/>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="YFK-5s-vkR" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="o8v-PU-ncd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="691" y="169"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="Hta-VB-oiH">
-            <objects>
-                <navigationController id="0B0-3X-kMG" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="RFV-ao-LAn">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="hzt-G3-TbD" kind="relationship" relationship="rootViewController" id="bnY-W5-0NP"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="8bb-17-mNZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-229" y="169"/>
+            <point key="canvasLocation" x="-319" y="-287"/>
         </scene>
     </scenes>
-    <resources>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-    </resources>
 </document>

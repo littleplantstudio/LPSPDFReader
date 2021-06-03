@@ -6,7 +6,9 @@
 //
 
 #import "ViewController.h"
+#import <LPSPDFReader/LPSPDFReader.h>
 #import <LPSPDFReader/PDFReaderViewController.h>
+#import <LPSPDFReader/LPSPDFReaderViewController.h>
 
 @interface ViewController ()
 
@@ -17,12 +19,14 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+   
 }
 
 - (IBAction)openPDFTouched:(id)sender {
-    UIStoryboard *story = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle bundleWithIdentifier:@"LPSPDFReader"]];
-    UIViewController *vc = [story instantiateViewControllerWithIdentifier:@"LPSPDFReaderVC"];
-    [self.navigationController pushViewController:vc animated:YES];
+    NSBundle *bundle = [NSBundle bundleForClass:[LPSPDFReader class]];
+    UIStoryboard *story = [UIStoryboard storyboardWithName:@"Main" bundle:bundle];
+    UIViewController *vc = [story instantiateViewControllerWithIdentifier:@"PDFReaderViewController"];
+    [self presentViewController:vc animated:YES completion:nil];
 }
 
 @end

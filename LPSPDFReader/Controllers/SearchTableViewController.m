@@ -8,7 +8,7 @@
 
 #import "SearchTableViewController.h"
 #import "SearchTableViewCell.h"
-
+#include "LPSConstants.h"
 @interface SearchTableViewController ()
 
 @end
@@ -29,7 +29,7 @@
     
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
-    [self.tableView registerNib:[UINib nibWithNibName:@"SearchTableViewCell" bundle:nil] forCellReuseIdentifier:@"SearchTableViewCell"];
+    [self.tableView registerNib:[UINib nibWithNibName:@"SearchTableViewCell" bundle:[[LPSConstants sharedInstance] lpsBundle]] forCellReuseIdentifier:@"SearchTableViewCell"];
     
 }
 
