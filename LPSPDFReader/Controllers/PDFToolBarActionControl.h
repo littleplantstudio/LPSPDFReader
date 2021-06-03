@@ -22,6 +22,4 @@
 - (void)showBookmarkTableFromSender:(id)sender;
 - (void)showSearchTableForPDFDocument:(PDFDocument *)pdfDocument fromSender:(id)sender;
 
-
-
 @end

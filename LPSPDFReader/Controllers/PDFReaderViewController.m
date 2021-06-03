@@ -94,9 +94,31 @@
     [self.pdfView zoomIn:self];
     [self.pdfContainerView addSubview:self.pdfView];
     
-    NSURL *url = [[[LPSConstants sharedInstance] lpsBundle] URLForResource:@"sample" withExtension:@"pdf"];
-    self.pdfDocument = [[PDFDocument alloc] initWithURL:url];
-    
+    if(!self.pdfUrl){
+        //self.pdfUrl  = [[[LPSConstants sharedInstance] lpsBundle] URLForResource:@"sample" withExtension:@"pdf"];
+        UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"Error!"
+                                   message:@"File not found"
+                                   preferredStyle:UIAlertControllerStyleAlert];
+
+        UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault
+                                       handler:^(UIAlertAction * action) {
+            
+            [self dismissViewControllerAnimated:YES completion:nil];
+        }];
+
+        [alert addAction:defaultAction];
+        
+        NSTimeInterval delayInSeconds = 2.0f;
+        dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
+        dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+            [self presentViewController:alert animated:YES completion:nil];
+        });
+        return;
+    }
+    self.pdfDocument = [[PDFDocument alloc] initWithURL:self.pdfUrl];
+    if( self.pdfDocument.isEncrypted){
+        [self.pdfDocument unlockWithPassword:self.pdfPassword];
+    }
     self.pdfView.document = self.pdfDocument;
     [self.pdfView usePageViewController:(displayMode == kPDFDisplaySinglePage) ? YES :NO withViewOptions:nil];
     

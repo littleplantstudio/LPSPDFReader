@@ -26,6 +26,8 @@
 @property (strong, nonatomic) PDFView *pdfView;
 @property (strong, nonatomic) PDFDocument *pdfDocument;
 @property (nonatomic, assign) BOOL twoPageMode;
+@property (nonatomic, strong) NSURL *pdfUrl;
+@property (nonatomic, strong) NSString *pdfPassword;
 
 - (void)preparePDFViewWithPageMode:(PDFDisplayMode) displayMode;
 

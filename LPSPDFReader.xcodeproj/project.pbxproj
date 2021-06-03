@@ -39,16 +39,13 @@
 		A288C3732668B4CE004E9EBE /* BookmarkTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A288C35C2668B4CE004E9EBE /* BookmarkTableViewCell.m */; platformFilter = ios; };
 		A288C3742668B4CE004E9EBE /* OutlineTableViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = A288C35D2668B4CE004E9EBE /* OutlineTableViewCell.h */; platformFilter = ios; settings = {ATTRIBUTES = (Public, ); }; };
 		A288C3752668B4CE004E9EBE /* ThumbnailCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A288C35E2668B4CE004E9EBE /* ThumbnailCollectionCell.m */; platformFilter = ios; };
-		A288C3762668B4CE004E9EBE /* sample.pdf in Resources */ = {isa = PBXBuildFile; fileRef = A288C35F2668B4CE004E9EBE /* sample.pdf */; platformFilter = ios; };
 		A288C3782668B53D004E9EBE /* LPSPDFReader.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A288C3102668B44E004E9EBE /* LPSPDFReader.framework */; };
 		A288C3792668B53D004E9EBE /* LPSPDFReader.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A288C3102668B44E004E9EBE /* LPSPDFReader.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A288C3822668B604004E9EBE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A288C3812668B604004E9EBE /* Main.storyboard */; platformFilter = ios; };
 		A288C3842668BBA7004E9EBE /* LPSPDFReader.m in Sources */ = {isa = PBXBuildFile; fileRef = A288C3832668BBA7004E9EBE /* LPSPDFReader.m */; platformFilter = ios; };
-		A288C38A2668C04A004E9EBE /* LPSPDFReaderViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = A288C3872668C04A004E9EBE /* LPSPDFReaderViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		A288C38B2668C04A004E9EBE /* LPSPDFReaderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A288C3882668C04A004E9EBE /* LPSPDFReaderViewController.m */; platformFilter = ios; };
-		A288C38C2668C04A004E9EBE /* LPSPDFReaderViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A288C3892668C04A004E9EBE /* LPSPDFReaderViewController.xib */; platformFilter = ios; };
 		A288C38F2668F5CB004E9EBE /* LPSConstants.h in Headers */ = {isa = PBXBuildFile; fileRef = A288C38D2668F5CB004E9EBE /* LPSConstants.h */; };
 		A288C3902668F5CB004E9EBE /* LPSConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = A288C38E2668F5CB004E9EBE /* LPSConstants.m */; };
+		A288C391266902D2004E9EBE /* sample.pdf in Resources */ = {isa = PBXBuildFile; fileRef = A288C35F2668B4CE004E9EBE /* sample.pdf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -126,9 +123,6 @@
 		A288C35F2668B4CE004E9EBE /* sample.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = sample.pdf; sourceTree = "<group>"; };
 		A288C3812668B604004E9EBE /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = LPSPDFReader/Controllers/Main.storyboard; sourceTree = SOURCE_ROOT; };
 		A288C3832668BBA7004E9EBE /* LPSPDFReader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LPSPDFReader.m; sourceTree = "<group>"; };
-		A288C3872668C04A004E9EBE /* LPSPDFReaderViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LPSPDFReaderViewController.h; sourceTree = "<group>"; };
-		A288C3882668C04A004E9EBE /* LPSPDFReaderViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LPSPDFReaderViewController.m; sourceTree = "<group>"; };
-		A288C3892668C04A004E9EBE /* LPSPDFReaderViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LPSPDFReaderViewController.xib; sourceTree = "<group>"; };
 		A288C38D2668F5CB004E9EBE /* LPSConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LPSConstants.h; sourceTree = "<group>"; };
 		A288C38E2668F5CB004E9EBE /* LPSConstants.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LPSConstants.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -188,7 +182,6 @@
 				A288C3802668B5BA004E9EBE /* Views */,
 				A288C3472668B4CE004E9EBE /* Controllers */,
 				A288C37F2668B5A2004E9EBE /* Storyboards */,
-				A288C35F2668B4CE004E9EBE /* sample.pdf */,
 				A288C3132668B44E004E9EBE /* LPSPDFReader.h */,
 				A288C3832668BBA7004E9EBE /* LPSPDFReader.m */,
 				A288C3142668B44E004E9EBE /* Info.plist */,
@@ -221,6 +214,7 @@
 				A288C33E2668B497004E9EBE /* LaunchScreen.storyboard */,
 				A288C3412668B497004E9EBE /* Info.plist */,
 				A288C3422668B497004E9EBE /* main.m */,
+				A288C35F2668B4CE004E9EBE /* sample.pdf */,
 			);
 			path = LPSPDFDemo;
 			sourceTree = "<group>";
@@ -238,9 +232,6 @@
 				A288C34C2668B4CE004E9EBE /* PDFToolBarActionControl.m */,
 				A288C3482668B4CE004E9EBE /* SearchTableViewController.h */,
 				A288C34F2668B4CE004E9EBE /* SearchTableViewController.m */,
-				A288C3872668C04A004E9EBE /* LPSPDFReaderViewController.h */,
-				A288C3882668C04A004E9EBE /* LPSPDFReaderViewController.m */,
-				A288C3892668C04A004E9EBE /* LPSPDFReaderViewController.xib */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -293,7 +284,6 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A288C38A2668C04A004E9EBE /* LPSPDFReaderViewController.h in Headers */,
 				A288C3602668B4CE004E9EBE /* SearchTableViewController.h in Headers */,
 				A288C3742668B4CE004E9EBE /* OutlineTableViewCell.h in Headers */,
 				A288C3692668B4CE004E9EBE /* PDFToolBarActionControl.h in Headers */,
@@ -412,11 +402,9 @@
 			files = (
 				A288C3712668B4CE004E9EBE /* ThumbnailCollectionCell.xib in Resources */,
 				A288C36A2668B4CE004E9EBE /* Assets.xcassets in Resources */,
-				A288C38C2668C04A004E9EBE /* LPSPDFReaderViewController.xib in Resources */,
 				A288C36E2668B4CE004E9EBE /* OutlineTableViewCell.xib in Resources */,
 				A288C3822668B604004E9EBE /* Main.storyboard in Resources */,
 				A288C36B2668B4CE004E9EBE /* SearchTableViewCell.xib in Resources */,
-				A288C3762668B4CE004E9EBE /* sample.pdf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -431,6 +419,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A288C391266902D2004E9EBE /* sample.pdf in Resources */,
 				A288C3402668B497004E9EBE /* LaunchScreen.storyboard in Resources */,
 				A288C33D2668B497004E9EBE /* Assets.xcassets in Resources */,
 				A288C33B2668B495004E9EBE /* Main.storyboard in Resources */,
@@ -451,7 +440,6 @@
 				A288C3732668B4CE004E9EBE /* BookmarkTableViewCell.m in Sources */,
 				A288C3902668F5CB004E9EBE /* LPSConstants.m in Sources */,
 				A288C3612668B4CE004E9EBE /* BookmarkViewController.m in Sources */,
-				A288C38B2668C04A004E9EBE /* LPSPDFReaderViewController.m in Sources */,
 				A288C3702668B4CE004E9EBE /* OutlineTableViewCell.m in Sources */,
 				A288C3672668B4CE004E9EBE /* SearchTableViewController.m in Sources */,
 				A288C36D2668B4CE004E9EBE /* SearchTableViewCell.m in Sources */,
