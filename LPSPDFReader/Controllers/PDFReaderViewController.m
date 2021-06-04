@@ -26,8 +26,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    self.documentName = @"sample.pdf";
     if (!self.toolbarActionControl) {
         self.toolbarActionControl = [[PDFToolBarActionControl alloc] init];
         self.toolbarActionControl.pdfViewController = self;
@@ -115,13 +113,17 @@
         });
         return;
     }
+    
     self.pdfDocument = [[PDFDocument alloc] initWithURL:self.pdfUrl];
-    if( self.pdfDocument.isEncrypted){
+    if(!self.pdfDocument){
+        self.pdfDocument = [[PDFDocument alloc] initWithData:[NSData dataWithContentsOfFile:self.pdfUrl.absoluteString]];
+    }
+    if(self.pdfDocument.isLocked || self.pdfDocument.isEncrypted){
         [self.pdfDocument unlockWithPassword:self.pdfPassword];
     }
     self.pdfView.document = self.pdfDocument;
+    self.pdfView.document.delegate = self;
     [self.pdfView usePageViewController:(displayMode == kPDFDisplaySinglePage) ? YES :NO withViewOptions:nil];
-    
 }
 
 #pragma mark - Update Top Bottom View
@@ -129,7 +131,7 @@
 - (void)updatePdfTitleAndPageNumber {
     
     self.pdfTitleLabel.text = self.documentName;
-    self.pageNumberLabel.text = [NSString stringWithFormat:@"Page %@ of %lu", self.pdfView.currentPage.label, (unsigned long)self.pdfDocument.pageCount];
+    self.pageNumberLabel.text = [NSString stringWithFormat:@" %@ of %lu ", self.pdfView.currentPage.label, (unsigned long)self.pdfDocument.pageCount];
 }
 
 - (void)updateThumbnailCollectionForSelectedIndex {
@@ -216,6 +218,7 @@
 
 -(void)PDFViewAnnotationHitNotification:(NSNotification*)notification {
     PDFAnnotation *annotation = (PDFAnnotation*)notification.userInfo[@"PDFAnnotationHit"];
+    [annotation setHighlighted:YES];
     NSUInteger pageNumber = [self.pdfDocument indexForPage:annotation.destination.page];
     NSLog(@"Page: %lu", (unsigned long)pageNumber);
 }
@@ -239,6 +242,15 @@
 }
 
 #pragma mark - Toolbar Button Actions
+
+- (IBAction)backAction:(id)sender {
+    if(self.navigationController){
+        [self.navigationController popViewControllerAnimated:YES];
+    }else{
+        [self dismissViewControllerAnimated:YES completion:nil];
+    }
+}
+
 
 - (IBAction)outlineAction:(id)sender {
     [self.toolbarActionControl showOutlineTableForPDFDocument:self.pdfDocument fromSender:sender];

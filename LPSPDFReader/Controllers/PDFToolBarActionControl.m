@@ -35,7 +35,7 @@
 }
 
 - (void)pageModeToggle:(BOOL)twoPageMode {
-    [self.pdfViewController.pageModeButton setImage: twoPageMode ? [UIImage imageNamed:@"pagesingle"] : [UIImage imageNamed:@"pagedouble"]];
+    [self.pdfViewController.pageModeButton setBackgroundImage:twoPageMode ? [UIImage imageNamed:@"pagedouble"] : [UIImage imageNamed:@"pagesingle"] forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
     [self.pdfViewController.pdfView removeFromSuperview];
     [self.pdfViewController preparePDFViewWithPageMode:twoPageMode ? kPDFDisplayTwoUpContinuous : kPDFDisplaySinglePage];
     self.pdfViewController.pdfView.scaleFactor = self.pdfViewController.pdfView.scaleFactorForSizeToFit;
